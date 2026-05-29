@@ -4,30 +4,34 @@
 
 A production-grade ETL pipeline for Berlin estate data using Apache Airflow, Soda Core for data governance, and PostgreSQL for storage. The pipeline extracts raw property data from CSV files, performs comprehensive data quality checks, transforms and cleans the data, then loads it into a PostgreSQL database while generating clean CSV outputs and quality reports.
 
-## Table of Contents
+## Author
+**Mahmoud Najmeh**  
+<img src="https://avatars.githubusercontent.com/u/78208459?u=c3f9c7d6b49fc9726c5ea8bce260656bcb9654b3&v=4" width="200px" style="border-radius: 50%;">
 
-| Section | Link |
-|--------|------|
-| Architecture | [Jump](#architecture) |
-| DAG Task Dependencies | [Jump](#dag-task-dependencies) |
-| Data Flow | [Jump](#data-flow) |
-| Sequence Diagram | [Jump](#sequence-diagram-pipeline-run) |
-| Data Quality Rules (Soda) | [Jump](#data-quality-rules-soda) |
-| Project Structure | [Jump](#project-structure) |
-| Testing Framework | [Jump](#testing-framework) |
-| Environment & Dependencies | [Jump](#environment--dependencies) |
-| Airflow UI | [Jump](#airflow-ui) |
-| Results | [Jump](#results) |
-| How to Run | [Jump](#how-to-run) |
-| Prerequisites | [Jump](#prerequisites) |
-| Installation | [Jump](#installation) |
-| Database Schema | [Jump](#database-schema) |
-| Troubleshooting | [Jump](#troubleshooting) |
-| Contributing | [Jump](#contributing) |
+------------------------------------------------------------------------
+
+## 📋 Table of Contents
+
+- 🏗️ [Architecture](#architecture)
+- 🧩 [DAG Task Dependencies](#dag-task-dependencies)
+- 🔄 [Data Flow](#data-flow)
+- 📊 [Sequence Diagram](#sequence-diagram-pipeline-run)
+- 🧪 [Data Quality Rules (Soda)](#data-quality-rules-soda)
+- 📁 [Project Structure](#project-structure)
+- 🧰 [Testing Framework](#testing-framework)
+- ⚙️ [Environment & Dependencies](#environment--dependencies)
+- 🌐 [Airflow UI](#airflow-ui)
+- 📦 [Results](#results)
+- 🚀 [How to Run](#how-to-run)
+- 📌 [Prerequisites](#prerequisites)
+- 🛠️ [Installation](#installation)
+- 🗄️ [Database Schema](#database-schema)
+- 🐞 [Troubleshooting](#troubleshooting)
+- 🤝 [Contributing](#contributing)
 
 ## Architecture
 
-![Architecture Diagram](Architecture Diagram.png)
+<img width="4979" height="3517" alt="Image" src="https://github.com/user-attachments/assets/c566dfec-2cfe-4209-a910-4556748b0312" />
 
 The pipeline follows a modular ETL architecture with:
 - **Source Layer**: Raw CSV data with intentionally planted quality issues
@@ -37,7 +41,7 @@ The pipeline follows a modular ETL architecture with:
 
 ## DAG Task Dependencies
 
-![DAG Task Dependencies](DAG Task Dependencies.png)
+<img width="4086" height="230" alt="Image" src="https://github.com/user-attachments/assets/de997d27-f8fe-451d-b531-7d2b406a64da" />
 
 The Airflow DAG executes tasks in the following order:
 1. `cleanup_old_files` - Removes previous run artifacts
@@ -49,7 +53,7 @@ The Airflow DAG executes tasks in the following order:
 
 ## Data Flow
 
-![Data Flow Diagram](Data Flow Diagram.png)
+<img width="2015" height="4622" alt="Image" src="https://github.com/user-attachments/assets/a652abdd-0e00-4e68-96b8-3f040afd8cd4" />
 
 **Input**: 21 raw records with planted issues (missing values, invalid formats, zero values)
 
@@ -67,7 +71,7 @@ The Airflow DAG executes tasks in the following order:
 
 ## Sequence Diagram (Pipeline Run)
 
-![Sequence Diagram (Pipeline Run)](Sequence Diagram (Pipeline Run).png)
+<img width="6140" height="4880" alt="Image" src="https://github.com/user-attachments/assets/a3f38b73-650d-4409-a6f8-1bba68222d88" />
 
 The sequence diagram illustrates the complete execution flow:
 - **Scheduler** triggers the DAG and coordinates task execution
@@ -82,7 +86,7 @@ Each task completes sequentially, with data passing from one stage to the next.
 
 ## Data Quality Rules (Soda)
 
-![Data Quality Rules](Data Quality Rules.png)
+<img width="7283" height="1326" alt="Image" src="https://github.com/user-attachments/assets/0cba5dac-c017-4eeb-8278-3d054c5761a3" />
 
 Soda Core enforces these quality checks:
 - Row count validation
@@ -95,7 +99,6 @@ Soda Core enforces these quality checks:
 
 ## Project Structure
 
-![Project Structure](Project Structure.png)
 berlin-estate-etl/
 ├── dags/
 │   └── berlin_estate_etl.py
@@ -139,7 +142,7 @@ text
 
 ## Testing Framework
 
-![Testing Framework](Testing Framework.png)
+<img width="2157" height="3687" alt="Image" src="https://github.com/user-attachments/assets/96518128-d886-4482-89c1-e5c6216a47fa" />
 
 The test suite validates:
 - Raw file existence and row count
@@ -152,7 +155,7 @@ The test suite validates:
 
 ## Environment & Dependencies
 
-![Environment & Dependencies](Environment & Dependencies.png)
+<img width="3151" height="2633" alt="Image" src="https://github.com/user-attachments/assets/fdbffa5b-efd5-4423-803f-7652ec33d221" />
 
 - **Python**: 3.11
 - **Orchestration**: Apache Airflow 3.x
@@ -162,7 +165,7 @@ The test suite validates:
 
 ## Airflow UI
 
-![Airflow UI](AirFlow.png)
+<img width="1917" height="1080" alt="Image" src="https://github.com/user-attachments/assets/56567d6a-25bb-467b-9c31-c0a92421f68d" />
 
 The Airflow web interface shows successful execution of all six tasks with their durations and states.
 
