@@ -53,7 +53,7 @@ The Airflow DAG executes tasks in the following order:
 
 ## Data Flow
 
-<img width="2015" height="4622" alt="Image" src="https://github.com/user-attachments/assets/a652abdd-0e00-4e68-96b8-3f040afd8cd4" />
+<img src="https://github.com/user-attachments/assets/a652abdd-0e00-4e68-96b8-3f040afd8cd4" width="800" />
 
 **Input**: 21 raw records with planted issues (missing values, invalid formats, zero values)
 
