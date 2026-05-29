@@ -97,7 +97,7 @@ Soda Core enforces these quality checks:
 - Size range validation (10 - 1000 sqm)
 - Data freshness (listing_date < 30 days)
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 berlin-estate-etl/
