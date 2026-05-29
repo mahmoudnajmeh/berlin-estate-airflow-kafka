@@ -1,0 +1,22 @@
+property_id,address,district,property_type,size_sqm,rooms,price_eur,construction_year,energy_class,listing_date,seller_tax_id,seller_name
+BER-001,Unter den Linden 1,Mitte,Apartment,85,3,650000,2019,A+,2025-01-15,DE123456789,Central Berlin Realty
+BER-002,Kurfürstendamm 22,Charlottenburg,Apartment,120,4,890000,1950,E,2025-01-20,DE987654321,Westend Properties
+BER-003,Friedrichstraße 10,Kreuzberg,Commercial,250,0,1200000,2005,B,2025-02-01,DE456789123,Friedrich Commercial GmbH
+BER-004,Boxhagener Str 45,Friedrichshain,Apartment,68,2,420000,1995,C,2025-02-05,DE789123456,East Side Realty
+BER-005,Schönhauser Allee 80,Prenzlauer Berg,Apartment,92,3,590000,2010,B,2025-02-10,DE321654987,Prenzlberg Homes
+BER-006,Maybachufer 15,Neukölln,Apartment,,2,350000,1980,D,2025-02-15,DE654987321
+BER-007,,Tempelhof,House,180,5,750000,1930,F,2025-02-20,DE147258369,Tempelhof Estates
+BER-008,Karl-Marx-Straße 100,Neukölln,Apartment,55,2,295000,1965,E,2025-02-25,DE258369147,Neukölln Immobilien
+BER-009,Skalitzer Str 72,Kreuzberg,Apartment,75,3,480000,invalid_year,C,2025-03-01,DE369147258,Kreuzberg Living
+BER-010,Revaler Str 99,Friedrichshain,Commercial,300,0,950000,2015,A,2025-03-05,DE741852963
+BER-011,Stresemannstr 110,Mitte,Apartment,110,4,720000,2018,A-,2025-03-10,DE963852741,Central Mitte AG
+BER-012,Danckelmannstr 15,Charlottenburg,Apartment,62,2,389000,1988,D,2025-03-15,DE159357248,Charlottenburg Realty
+BER-013,Boddinstr 35,Neukölln,Apartment,48,1,225000,1972,E,2025-03-20,DE753951852,Neukölln Properties
+BER-014,Simon-Dach-Str 20,Friedrichshain,Apartment,84,3,510000,1998,C,2025-03-25,DE951753864,Friedrichshain Group
+BER-015,Warschauer Str 50,Friedrichshain,Apartment,0,2,445000,2005,B,2025-03-30,DE357159468,East Berlin Homes
+BER-016,Richardstr 75,Neukölln,House,190,6,695000,1925,G,2025-04-05,DE468135792,Neukölln Estates
+BER-017,Oranienstr 8,Kreuzberg,Apartment,67,3,430000,1960,E,2025-04-10,DE579246813
+BER-018,Kottbusser Damm 30,Kreuzberg,Apartment,52,2,310000,1975,D,2025-04-15,DE682459371,Cross Berlin Realty
+BER-019,Schlesische Str 40,Kreuzberg,Commercial,400,0,1450000,2008,B,2025-04-20,DE793681524,Schlesi Commercial GmbH
+BER-020,Turmstr 25,Moabit,Apartment,93,4,625000,2020,A,2025-04-25,DE904712635,Moabit Development
+BER-021,Beusselstr 12,Moabit,Apartment,71,2,invalid_price,1995,C,2025-05-01,DE135792468,Moabit Central

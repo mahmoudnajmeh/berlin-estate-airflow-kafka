@@ -1,0 +1,22 @@
+property_id,address,district,property_type,size_sqm,rooms,price_eur,construction_year,energy_class,listing_date,seller_tax_id,seller_name
+BER-001,Kurfürstendamm 16,Prenzlauer Berg,Commercial,100,3.3,373591,2023,A,2026-05-26,DE332706304,Prenzlauer Berg Realty 21
+BER-002,Revaler Str 119,Friedrichshain,Commercial,166,5.5,1468288,1911,E,2026-05-18,DE934831102,Friedrichshain Realty 30
+BER-003,Schönhauser Allee 139,Moabit,House,159,5.3,1106700,1885,A+,2026-04-18,DE498799232,Moabit Realty 89
+BER-004,Boxhagener Str 105,Friedrichshain,Apartment,50,1.7,394652,1958,A+,2026-05-18,DE573993461,Friedrichshain Realty 68
+BER-005,Kurfürstendamm 63,Mitte,Apartment,167,5.6,1007807,1941,D,2026-05-01,DE110968314,Mitte Realty 86
+BER-006,Schlesische Str 58,Friedrichshain,House,,2,1164914,2007,B,2026-05-06,DE825010996,
+BER-007,,Prenzlauer Berg,Apartment,193,6.4,1470427,1938,C,2026-04-11,DE243493133,Prenzlauer Berg Realty 32
+BER-008,Karl-Marx-Straße 148,Mitte,Commercial,147,4.9,1093766,2020,A,2026-03-29,DE768107430,Mitte Realty 24
+BER-009,Boddinstr 43,Moabit,Commercial,49,1.6,283393,invalid_year,A,2026-05-16,DE948258242,Moabit Realty 3
+BER-010,Stresemannstr 14,Neukölln,Apartment,35,1.2,1254084,1888,A-,2026-04-22,DE611314443,
+BER-011,Maybachufer 107,Friedrichshain,Apartment,144,4.8,309250,2012,C,2026-04-21,DE116845731,Friedrichshain Realty 29
+BER-012,Boddinstr 131,Mitte,Commercial,105,3.5,776322,1887,F,2026-05-15,DE598652592,Mitte Realty 91
+BER-013,Richardstr 63,Prenzlauer Berg,House,73,2.4,1340598,1974,F,2026-03-30,DE474489837,Prenzlauer Berg Realty 86
+BER-014,Maybachufer 92,Mitte,Commercial,97,3.2,232389,2014,G,2026-04-08,DE440110250,Mitte Realty 76
+BER-015,Revaler Str 95,Neukölln,Apartment,0,2,1060145,1923,D,2026-04-15,DE837459109,Neukölln Realty 37
+BER-016,Friedrichstraße 62,Charlottenburg,Apartment,188,6.3,1066911,2020,A+,2026-05-13,DE155713205,Charlottenburg Realty 11
+BER-017,Simon-Dach-Str 18,Neukölln,Apartment,125,4.2,858591,2015,C,2026-03-28,,Neukölln Realty 81
+BER-018,Kottbusser Damm 66,Moabit,House,45,1.5,909475,1922,G,2026-04-21,DE320813320,Moabit Realty 51
+BER-019,Unter den Linden 69,Neukölln,Commercial,155,5.2,1367190,1949,E,2026-04-26,DE691506234,Neukölln Realty 34
+BER-020,Schlesische Str 27,Tempelhof,Commercial,182,6.1,439868,2011,B,2026-04-10,DE393893682,Tempelhof Realty 66
+BER-021,Skalitzer Str 91,Charlottenburg,Apartment,160,5.3,invalid_price,1975,A-,2026-05-04,DE364991350,Charlottenburg Realty 64

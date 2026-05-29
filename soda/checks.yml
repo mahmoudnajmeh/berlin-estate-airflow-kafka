@@ -1,0 +1,22 @@
+checks for berlin_properties:
+  - row_count > 0
+  - missing_count(property_id) = 0
+  - missing_count(address) = 0
+  - missing_count(district) = 0
+  - missing_count(price_eur) = 0
+  - duplicate_count(property_id) = 0
+  - invalid_count(district) = 0:
+      valid values: [Mitte, Charlottenburg, Kreuzberg, Neukölln, 
+                    Friedrichshain, Prenzlauer Berg, Tempelhof, Moabit]
+  - invalid_count(price_eur) = 0:
+      invalid_format: price_eur NOT BETWEEN 50000 AND 10000000
+  - invalid_count(size_sqm) = 0:
+      invalid_format: size_sqm NOT BETWEEN 10 AND 1000
+  - freshness(listing_date) < 30d
+  
+  - schema:
+      name: Berlin Estate Schema
+      fail:
+        when required column missing: [property_id, address, district, price_eur]
+      warn:
+        when forbidden column present: [temporary_flag, internal_id]
