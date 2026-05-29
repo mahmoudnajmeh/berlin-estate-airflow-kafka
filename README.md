@@ -211,7 +211,7 @@ pkill -f "airflow"
 
 ```bash
 # Clone the repository
-git clone https://github.com/mahmoudnajmeh/berlin-estate-etl.git
+git clone https://github.com/mahmoudnajmeh/berlin-estate-etl-airflow.git
 cd berlin-estate-etl
 
 # UV creates virtual environment automatically during sync
