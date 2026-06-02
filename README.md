@@ -2,7 +2,7 @@
 
 ## Overview
 
-A production-grade ETL pipeline for Berlin estate data using Apache Airflow, Soda Core for data governance, and PostgreSQL for storage. The pipeline extracts raw property data from CSV files, performs comprehensive data quality checks, transforms and cleans the data, then loads it into a PostgreSQL database while generating clean CSV outputs and quality reports.
+A production-grade event-driven ETL pipeline for Berlin estate data using Apache Airflow, Apache Kafka, Soda Core for data governance, and PostgreSQL for storage. The pipeline consumes streaming property data from Kafka topics, performs comprehensive data quality checks, transforms and cleans the data in near real-time, then loads it into PostgreSQL while generating clean CSV outputs and quality reports.
 
 ## Author
 **Mahmoud Najmeh**  
@@ -34,9 +34,10 @@ A production-grade ETL pipeline for Berlin estate data using Apache Airflow, Sod
 <img width="4979" height="3517" alt="Image" src="https://github.com/user-attachments/assets/c566dfec-2cfe-4209-a910-4556748b0312" />
 
 The pipeline follows a modular ETL architecture with:
-- **Source Layer**: Raw CSV data with intentionally planted quality issues
-- **Governance Layer**: Soda Core quality checks at key stages
-- **Processing Layer**: Airflow DAG with sequential transformation tasks
+- **Source Layer**: Kafka streaming (berlin-properties topic) + CSV files
+- **Streaming Layer**: Kafka 4.3.0 broker consuming JSON messages
+- **Governance Layer**: Soda Core quality checks
+- **Processing Layer**: Airflow DAG with sequential tasks
 - **Output Layer**: PostgreSQL database and clean CSV files
 
 ## DAG Task Dependencies
@@ -45,21 +46,25 @@ The pipeline follows a modular ETL architecture with:
 
 The Airflow DAG executes tasks in the following order:
 1. `cleanup_old_files` - Removes previous run artifacts
-2. `extract_data` - Reads CSV and adds metadata
+2. `extract_data` - Consumes JSON messages from Kafka topic
 3. `transform_data` - Cleans data and derives new fields
 4. `load_to_database` - Loads to PostgreSQL
 5. `save_clean_csv` - Exports final clean CSV
 6. `generate_quality_report` - Creates quality metrics JSON
 
-## Data Flow
+## Kafka Streaming Data Flow
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a652abdd-0e00-4e68-96b8-3f040afd8cd4" width="600">
+  <img width="2015" height="5388" alt="Image" src="https://github.com/user-attachments/assets/e8d2a0a2-778a-4c53-afa3-61c4ba79b90c" />
 </p>
 
-**Input**: 21 raw records with planted issues (missing values, invalid formats, zero values)
+**Data Sources**:
+- **Batch Mode**: CSV file (21 raw records with planted issues)
+- **Streaming Mode**: Kafka topic 'berlin-properties' (JSON messages)
 
-**Extract**: Adds metadata (`extracted_at`, `source_file`, `data_year`) and stages as CSV
+**Extract**: 
+- Batch: Reads CSV, adds metadata (`extracted_at`, `source_file`, `data_year`)
+- Streaming: Kafka consumer polls for 30 seconds, extracts JSON messages
 
 **Transform**: 
 - Fills missing addresses
@@ -67,9 +72,9 @@ The Airflow DAG executes tasks in the following order:
 - Filters invalid values
 - Derives new fields: `price_per_sqm`, `property_age_years`, `age_category`, `district_zone`, `price_percentile_district`
 
-**Load**: 357 cleaned records in PostgreSQL
+**Load**: PostgreSQL `berlin_properties_cleaned` table
 
-**Output**: Clean CSV file and quality report JSON
+**Output**: Clean CSV file (`data/cleaned/`) and quality report JSON
 
 ## Sequence Diagram (Pipeline Run)
 
@@ -178,7 +183,27 @@ The Airflow web interface shows successful execution of all six tasks with their
 - **Clean CSV**: `data/cleaned/berlin_properties_clean_*.csv`
 - **Quality Report**: `data/quality/pipeline_report_*.json`
 
+## Kafka Setup
+
+```bash
+# Download Kafka 4.3.0
+wget https://downloads.apache.org/kafka/4.3.0/kafka_2.13-4.3.0.tgz
+tar -xzf kafka_2.13-4.3.0.tgz
+cd kafka_2.13-4.3.0
+
+# Start Kafka broker
+bin/kafka-server-start.sh config/broker.properties
+
+# Create topic
+bin/kafka-topics.sh --create --topic berlin-properties --bootstrap-server localhost:9092
+
+# Send test message
+echo '{"property_id":"BER-001",...}' | bin/kafka-console-producer.sh --topic berlin-properties --bootstrap-server localhost:9092
+```
+
 ## How to Run
+
+### Batch Mode (CSV)
 
 ```bash
 # Set up environment
@@ -193,11 +218,50 @@ python scripts/run_local_validation.py
 # Start Airflow
 airflow standalone
 
-# Trigger DAG (in another terminal)
+# Trigger DAG
 airflow dags trigger berlin_estate_etl
 
-# Stop Airflow (Ctrl+C in the standalone terminal, or run)
+# Stop Airflow
 pkill -f "airflow"
+```
+
+### Streaming Mode (Kafka)
+
+```bash
+# Terminal 1: Start Kafka
+cd ~/berlin-estate-etl/kafka_2.13-4.3.0
+bin/kafka-server-start.sh config/broker.properties
+```
+
+```bash
+# Terminal 2: Start Airflow
+export PROJECT_ROOT=/home/d-i-student/berlin-estate-etl
+airflow standalone
+```
+
+```bash
+# Terminal 3: Send a message to Kafka
+cd ~/berlin-estate-etl/kafka_2.13-4.3.0
+
+echo '{"property_id":"BER-001","address":"Unter den Linden 1","district":"Mitte","property_type":"Apartment","size_sqm":"85","rooms":"3","price_eur":"650000","construction_year":"2019","energy_class":"A+","listing_date":"2025-01-15","seller_tax_id":"DE123456789","seller_name":"Central Berlin Realty"}' | bin/kafka-console-producer.sh --topic berlin-properties --bootstrap-server localhost:9092
+```
+
+```bash
+# Trigger DAG
+airflow dags trigger berlin_estate_etl
+```
+
+### Stop All Services
+
+```bash
+# Stop Airflow
+pkill -f "airflow"
+
+# Stop Kafka
+# Press Ctrl+C in the Kafka terminal
+
+# Stop PostgreSQL (if needed)
+sudo systemctl stop postgresql
 ```
 
 ## Prerequisites
