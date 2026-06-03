@@ -159,7 +159,9 @@ berlin-estate-etl/
 
 ## Testing Framework
 
-<img width="2157" height="3687" alt="Image" src="https://github.com/user-attachments/assets/96518128-d886-4482-89c1-e5c6216a47fa" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/96518128-d886-4482-89c1-e5c6216a47fa" width="400" alt="Image">
+</p>
 
 The test suite validates:
 - Raw file existence and row count
