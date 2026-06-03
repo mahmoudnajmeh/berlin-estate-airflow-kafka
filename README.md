@@ -54,9 +54,7 @@ The Airflow DAG executes tasks in the following order:
 
 ## Kafka Streaming Data Flow
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/e8d2a0a2-778a-4c53-afa3-61c4ba79b90c" width="500" alt="Berlin Estate ETL Pipeline">
-</p>
+<img width="2837" height="4419" alt="Image" src="https://github.com/user-attachments/assets/ecb080e9-b4f8-435e-a9dc-674147299b87" />
 
 **Data Sources**:
 - **Batch Mode**: CSV file (21 raw records with planted issues)
