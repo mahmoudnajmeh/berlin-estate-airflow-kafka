@@ -55,7 +55,7 @@ The Airflow DAG executes tasks in the following order:
 ## Kafka Streaming Data Flow
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/ecb080e9-b4f8-435e-a9dc-674147299b87" width="450" alt="Image">
+  <img src="https://github.com/user-attachments/assets/e8d2a0a2-778a-4c53-afa3-61c4ba79b90c" width="600" alt="Berlin Estate ETL Pipeline">
 </p>
 
 **Data Sources**:
