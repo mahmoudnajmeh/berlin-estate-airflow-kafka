@@ -16,6 +16,8 @@ A production-grade event-driven ETL pipeline for Berlin estate data using Apache
 - 🧩 [DAG Task Dependencies](#dag-task-dependencies)
 - 🔄 [Data Flow](#data-flow)
 - 📊 [Sequence Diagram](#sequence-diagram-pipeline-run)
+- 🧩 [Combined Batch + Streaming Architecture](#combined-batch--streaming-architecture)
+- 📨 [Kafka Message Flow Sequence](#kafka-message-flow-sequence)
 - 🧪 [Data Quality Rules (Soda)](#data-quality-rules-soda)
 - 📁 [Project Structure](#project-structure)
 - 🧰 [Testing Framework](#testing-framework)
