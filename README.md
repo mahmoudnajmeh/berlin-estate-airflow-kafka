@@ -93,7 +93,9 @@ Each task completes sequentially, with data passing from one stage to the next.
 
 ## Combined Batch + Streaming Architecture
 
-<img width="2587" height="4623" alt="Image" src="https://github.com/user-attachments/assets/2475732b-d908-4894-9442-0da56f061d94" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2475732b-d908-4894-9442-0da56f061d94" width="300" alt="Image">
+</p>
 
 ## Kafka Message Flow Sequence
 
