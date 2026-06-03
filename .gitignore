@@ -44,6 +44,11 @@ htmlcov/
 Soda
 .soda/
 
+Kafka
+kafka_2.13-4.3.0/
+kafka_*.tgz
+*.log
+
 data/cleaned/berlin_properties_clean_*.csv
 !data/cleaned/berlin_properties_clean_latest.csv
 

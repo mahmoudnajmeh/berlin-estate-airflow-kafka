@@ -12,6 +12,9 @@ dependencies = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
     "python-dotenv>=1.0.0",
+    "kafka-python>=2.3.1",
+    "apache-airflow-providers-apache-kafka>=1.14.0",
+    "confluent-kafka>=2.14.0",
 ]
 
 [project.optional-dependencies]

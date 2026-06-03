@@ -15,6 +15,7 @@ from pathlib import Path
 import json
 import logging
 import csv
+import json
 import pandas as pd
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -23,6 +24,7 @@ from airflow.exceptions import AirflowException
 from soda.scan import Scan
 import psycopg2
 from psycopg2.extras import execute_values
+from confluent_kafka import Consumer
 
 
 logger = logging.getLogger(__name__)
@@ -78,10 +80,6 @@ def _write_csv(path, rows):
 
 
 def extract_data(**context):
-    """
-    Extract data from CSV file and stage it for processing.
-    """
-    
     logger.info("Starting data extraction from CSV")
     
     try:
@@ -118,7 +116,6 @@ def extract_data(**context):
     except Exception as e:
         logger.error(f"Extraction failed: {str(e)}")
         raise AirflowException(f"Data extraction failed: {str(e)}")
-
 
 def run_soda_quality_checks(**context):
     """
