@@ -91,6 +91,14 @@ The sequence diagram illustrates the complete execution flow:
 
 Each task completes sequentially, with data passing from one stage to the next.
 
+## Combined Batch + Streaming Architecture
+
+<img width="2587" height="4623" alt="Image" src="https://github.com/user-attachments/assets/2475732b-d908-4894-9442-0da56f061d94" />
+
+## Kafka Message Flow Sequence
+
+<img width="5451" height="3300" alt="Image" src="https://github.com/user-attachments/assets/491b08b7-2d4b-4afe-9e4b-fe6ae433b817" />
+
 ## Data Quality Rules (Soda)
 
 <img width="7283" height="1326" alt="Image" src="https://github.com/user-attachments/assets/0cba5dac-c017-4eeb-8278-3d054c5761a3" />
