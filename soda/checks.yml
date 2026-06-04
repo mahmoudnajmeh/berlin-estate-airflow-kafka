@@ -20,3 +20,10 @@ checks for berlin_properties:
         when required column missing: [property_id, address, district, price_eur]
       warn:
         when forbidden column present: [temporary_flag, internal_id]
+
+checks for kafka_streaming_source:
+  - row_count > 0
+  - schema:
+      name: Kafka JSON Schema
+      fail:
+        when required field missing: [property_id, address, district, price_eur, size_sqm]
